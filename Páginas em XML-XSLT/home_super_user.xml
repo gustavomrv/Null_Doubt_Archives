@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?xml-stylesheet type='text/xsl' href='home_super_user.xslt'?>
+
+
+<todos_os_objetos>
+  <todos_os_docentes>
+    <docente>
+      <matricula>1000</matricula>
+      <nome>André da Cunha Ribeiro</nome>
+      <ativo>1</ativo>
+    </docente>
+    <docente>
+      <matricula>2000</matricula>
+      <nome>Douglas Cedrim</nome>
+      <ativo>0</ativo>
+    </docente>
+    <docente>
+      <matricula>3000</matricula>
+      <nome>Adriano Bailão</nome>
+      <ativo>1</ativo>
+    </docente>
+  </todos_os_docentes>
+
+  <todos_os_discentes>
+    <discente>
+      <matricula>2020102201940040</matricula>
+      <nome>Gustavo Moura Barros</nome>
+      <curso>Ciências da Computação</curso>
+      <ativo>1</ativo>
+      <monitor>1</monitor>
+    </discente>
+    <discente>
+      <matricula>2020102201940067</matricula>
+      <nome>João Victor Aquino Andrade Saraiva</nome>
+      <curso>Ciências da Computação</curso>
+      <ativo>1</ativo>
+      <monitor>1</monitor>
+    </discente>
+    <discente>
+      <matricula>2020102201940083</matricula>
+      <nome>Wésio Messias Coelho</nome>
+      <curso>Ciências da Computação</curso>
+      <ativo>1</ativo>
+      <monitor>0</monitor>
+    </discente>
+  </todos_os_discentes>
+
+  <todos_os_monitores>
+    <monitor>
+      <matricula>2020102201940040</matricula>
+      <nome>Gustavo Moura Barros</nome>
+      <curso>Ciências da Computação</curso>
+      <ativo>1</ativo>
+    </monitor>
+    <monitor>
+      <matricula>2020102201940067</matricula>
+      <nome>João Victor Aquino Andrade Saraiva</nome>
+      <curso>Ciências da Computação</curso>
+      <ativo>1</ativo>
+    </monitor>
+  </todos_os_monitores>
+
+  <todos_os_cursos>
+    <curso>
+      <codigo>1</codigo>
+      <nome>Ciências da Computação</nome>
+      <ativo>1</ativo>
+    </curso>
+    <curso>
+      <codigo>2</codigo>
+      <nome>Agronomia</nome>
+      <ativo>1</ativo>
+    </curso>
+    <curso>
+      <codigo>3</codigo>
+      <nome>Zootecnia</nome>
+      <ativo>1</ativo>
+    </curso>
+    <curso>
+      <codigo>4</codigo>
+      <nome>Química</nome>
+      <ativo>0</ativo>
+    </curso>
+    <curso>
+      <codigo>5</codigo>
+      <nome>Técnico em Informática</nome>
+      <ativo>1</ativo>
+    </curso>
+  </todos_os_cursos>
+
+  <todas_as_disciplinas>
+    <disciplina>
+      <nome>Grafos</nome>
+      <id>1</id>
+      <codigo>10</codigo>
+      <periodo>2</periodo>
+      <encerramento>2022-12-07</encerramento>
+      <docente>André da Cunha Ribeiro</docente>
+      <monitor>Não possui</monitor>
+      <ativo>1</ativo>
+    </disciplina>
+    <disciplina>
+      <nome>Projeto de Software</nome>
+      <id>4</id>
+      <codigo>111</codigo>
+      <periodo>2</periodo>
+      <encerramento>2022-01-25</encerramento>
+      <docente>Adriano Bailão</docente>
+      <monitor>Não possui</monitor>
+      <ativo>1</ativo>
+    </disciplina>
+    <disciplina>
+      <nome>TCC - 1</nome>
+      <id>3</id>
+      <codigo>15</codigo>
+      <periodo>1</periodo>
+      <encerramento>2022-01-02</encerramento>
+      <docente>André da Cunha Ribeiro</docente>
+      <monitor>Não possui</monitor>
+      <ativo>0</ativo>
+    </disciplina>
+  </todas_as_disciplinas>
+</todos_os_objetos>
+
+
+
+
+

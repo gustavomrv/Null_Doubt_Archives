@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?xml-stylesheet type='text/xsl' href='view_discentes_super_user.xslt'?>
+<todos_os_objetos>
+  <todos_os_discentes>
+    <discente>
+      <matricula>2020102201940040</matricula>
+      <nome>Gustavo Moura Barros</nome>
+      <curso>Ciências da Computação</curso>
+      <ativo>1</ativo>
+      <monitor>1</monitor>
+    </discente>
+    <discente>
+      <matricula>2020102201940067</matricula>
+      <nome>João Victor Aquino Andrade Saraiva</nome>
+      <curso>Ciências da Computação</curso>
+      <ativo>1</ativo>
+      <monitor>1</monitor>
+    </discente>
+    <discente>
+      <matricula>2020102201940083</matricula>
+      <nome>Wésio Messias Coelho</nome>
+      <curso>Ciências da Computação</curso>
+      <ativo>1</ativo>
+      <monitor>0</monitor>
+    </discente>
+  </todos_os_discentes>
+</todos_os_objetos>
+
+
+
+
+

@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?xml-stylesheet type='text/xsl' href='view_disciplinas_super_user.xslt'?>
+<todos_os_objetos>
+  <todas_as_disciplinas>
+    <disciplina>
+      <nome>Grafos</nome>
+      <id>1</id>
+      <codigo>10</codigo>
+      <periodo>2</periodo>
+      <encerramento>2022-12-07</encerramento>
+      <docente>André da Cunha Ribeiro</docente>
+      <monitor>Não possui</monitor>
+      <ativo>1</ativo>
+    </disciplina>
+    <disciplina>
+      <nome>Projeto de Software</nome>
+      <id>4</id>
+      <codigo>111</codigo>
+      <periodo>2</periodo>
+      <encerramento>2022-01-25</encerramento>
+      <docente>Adriano Bailão</docente>
+      <monitor>Não possui</monitor>
+      <ativo>1</ativo>
+    </disciplina>
+    <disciplina>
+      <nome>TCC - 1</nome>
+      <id>3</id>
+      <codigo>15</codigo>
+      <periodo>1</periodo>
+      <encerramento>2022-01-02</encerramento>
+      <docente>André da Cunha Ribeiro</docente>
+      <monitor>Não possui</monitor>
+      <ativo>0</ativo>
+    </disciplina>
+  </todas_as_disciplinas>
+</todos_os_objetos>
+
+
+
+
+

@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?xml-stylesheet type='text/xsl' href='view_docentes_super_user.xslt'?>
+<todos_os_objetos>
+  <todos_os_docentes>
+    <docente>
+      <matricula>1000</matricula>
+      <nome>André da Cunha Ribeiro</nome>
+      <ativo>1</ativo>
+    </docente>
+    <docente>
+      <matricula>2000</matricula>
+      <nome>Douglas Cedrim</nome>
+      <ativo>0</ativo>
+    </docente>
+    <docente>
+      <matricula>3000</matricula>
+      <nome>Adriano Bailão</nome>
+      <ativo>1</ativo>
+    </docente>
+  </todos_os_docentes>
+</todos_os_objetos>
+
+
+
+
+
