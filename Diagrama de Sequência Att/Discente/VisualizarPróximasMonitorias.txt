@@ -1,0 +1,68 @@
+title Diagrama de Sequência -> Discente Monitor -> Visualizar Próximas Monitorias
+
+actor Discente Monitor
+
+
+
+participant Visualizar Próximas Monitorias
+
+participant Componente de Negócio
+
+database Banco de Dados
+
+activate Visualizar Próximas Monitorias
+Discente Monitor->Visualizar Próximas Monitorias: Visualizar Próximas Monitorias
+
+activate Componente de Negócio
+Visualizar Próximas Monitorias->Componente de Negócio:Valida se o monitor foi atribuído em alguma disciplina()
+
+activate Banco de Dados
+Componente de Negócio->Banco de Dados:Checa se o monitor foi atribuido em alguma disciplina()
+
+Componente de Negócio<--Banco de Dados: Monitor foi atribuido em alguma disciplina
+
+deactivate Banco de Dados
+
+Componente de Negócio->Componente de Negócio:Valida se a disciplina existe ou não()
+activate Banco de Dados
+Componente de Negócio->Banco de Dados:Checa se a disciplina existe ou não no banco de dados()
+Componente de Negócio<--Banco de Dados: Disciplina existe
+deactivate Banco de Dados
+Visualizar Próximas Monitorias<--Componente de Negócio:
+
+deactivate Componente de Negócio
+space 
+
+activate Componente de Negócio
+Visualizar Próximas Monitorias->Componente de Negócio:Valida se o monitor possui monitorias cadastradas()
+
+activate Banco de Dados
+Componente de Negócio->Banco de Dados:Checa se o monitor possui monitorias cadastradas()
+
+Componente de Negócio<--Banco de Dados: Monitor possui ou não monitorias cadastradas
+deactivate Banco de Dados
+
+Visualizar Próximas Monitorias<--Componente de Negócio:
+
+deactivate Componente de Negócio
+space 
+
+activate Componente de Negócio
+Visualizar Próximas Monitorias->Componente de Negócio:Visualiza suas monitorias()
+
+
+activate Banco de Dados
+
+Componente de Negócio->Banco de Dados:Checa se a monitoria existe no banco de dados()
+Componente de Negócio<--Banco de Dados: O atendimento ou monitoria existe ou não existe
+
+
+
+deactivate Banco de Dados
+
+
+Visualizar Próximas Monitorias<--Componente de Negócio:
+
+deactivate Componente de Negócio
+Discente Monitor<--Visualizar Próximas Monitorias:
+deactivate Visualizar Próximas Monitorias

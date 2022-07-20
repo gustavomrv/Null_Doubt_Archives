@@ -1,0 +1,77 @@
+title Diagrama de Sequência -> Docente -> Visualizar Próximos Atendimentos
+
+actor Docente
+
+participant Visualizar Próximos Atendimentos
+
+participant Componente de Negócio
+
+database Banco de Dados
+
+activate Visualizar Próximos Atendimentos
+Docente->Visualizar Próximos Atendimentos: Visualizar Próximos Atendimentos
+
+activate Componente de Negócio
+Visualizar Próximos Atendimentos->Componente de Negócio:Valida se o docente possui alguma disciplina()
+
+activate Banco de Dados
+Componente de Negócio->Banco de Dados:Checa se o docente possui alguma disciplina()
+
+Componente de Negócio<--Banco de Dados: Docente possui ou não alguma disciplina
+
+deactivate Banco de Dados
+
+Componente de Negócio->Componente de Negócio:Valida se a disciplina existe ou não()
+activate Banco de Dados
+Componente de Negócio->Banco de Dados:Checa se a disciplina existe ou não no banco de dados()
+Componente de Negócio<--Banco de Dados: Disciplina existe
+deactivate Banco de Dados
+Visualizar Próximos Atendimentos<--Componente de Negócio:
+
+deactivate Componente de Negócio
+space 
+
+activate Componente de Negócio
+Visualizar Próximos Atendimentos->Componente de Negócio:Valida se o docente possui atendimentos cadastrados()
+
+activate Banco de Dados
+Componente de Negócio->Banco de Dados:Checa se o docente possui atendimentos cadastrados()
+
+Componente de Negócio<--Banco de Dados: Docente possui ou não atendimentos cadastrados
+deactivate Banco de Dados
+
+Visualizar Próximos Atendimentos<--Componente de Negócio:
+
+deactivate Componente de Negócio
+space 
+
+activate Componente de Negócio
+Visualizar Próximos Atendimentos->Componente de Negócio:Visualiza seus atendimentos()
+
+
+activate Banco de Dados
+
+Componente de Negócio->Banco de Dados:Checa se o atendimento existe no banco de dados()
+Componente de Negócio<--Banco de Dados: O atendimento existe ou não existe
+
+deactivate Banco de Dados
+space 
+activate Banco de Dados
+
+Componente de Negócio->Banco de Dados:Seleciona dados de seus atendimentos cadastrados()
+Componente de Negócio<--Banco de Dados:
+
+deactivate Banco de Dados
+
+Componente de Negócio->Componente de Negócio:Valida se o local do atendimento existe ou não()
+
+activate Banco de Dados
+Componente de Negócio->Banco de Dados:Checa se o local existe ou não no banco de dados()
+Componente de Negócio<--Banco de Dados: Local existe
+deactivate Banco de Dados
+
+Visualizar Próximos Atendimentos<--Componente de Negócio:
+
+deactivate Componente de Negócio
+Docente<--Visualizar Próximos Atendimentos:
+deactivate Visualizar Próximos Atendimentos

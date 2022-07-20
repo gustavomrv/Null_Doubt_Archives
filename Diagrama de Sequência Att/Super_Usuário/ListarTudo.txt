@@ -1,0 +1,60 @@
+title Diagrama de Sequência -> Super-Usuário -> Listar Tudo
+
+actor Super-Usuário
+
+
+
+participant Listar Tudo
+
+participant Componente de Negócio
+
+database Banco de Dados
+
+activate Listar Tudo
+Super-Usuário->Listar Tudo:Visualiza todos os docentes, discentes, locais e disciplinas cadastrados
+
+activate Componente de Negócio
+Listar Tudo->Componente de Negócio:Valida se o objeto existe ou não()
+
+activate Banco de Dados
+Componente de Negócio->Banco de Dados:Checa se o objeto existe ou não no banco de dados()
+
+Componente de Negócio<--Banco de Dados: Objeto existe ou não existe()
+
+deactivate Banco de Dados
+
+Listar Tudo<--Componente de Negócio:
+
+deactivate Componente de Negócio
+space 
+activate Componente de Negócio
+Listar Tudo->Componente de Negócio:Visualizar o objeto()
+
+Componente de Negócio->Componente de Negócio:Valida se o docente da disciplina existe ou não()
+
+activate Banco de Dados
+
+Componente de Negócio->Banco de Dados:Checa se o docente da disciplina existe ou não no banco de dados()
+Componente de Negócio<--Banco de Dados: Docente existe ou não existe()
+
+
+
+deactivate Banco de Dados
+
+Componente de Negócio->Componente de Negócio:Valida se há discentes inscritos na disciplina()
+
+activate Banco de Dados
+
+Componente de Negócio->Banco de Dados:Checa se os discentes inscritos existem ou não no banco de dados()
+Componente de Negócio<--Banco de Dados: O discentes inscritos existem ou não existem()
+
+
+
+deactivate Banco de Dados
+
+
+Listar Tudo<--Componente de Negócio:
+
+deactivate Componente de Negócio
+Super-Usuário<--Listar Tudo:
+deactivate Listar Tudo

@@ -1,0 +1,161 @@
+title Diagrama de Sequência -> Docente -> Adicionar ou Remover Monitor
+
+actor Docente
+
+actor Discente Monitor
+
+participant Adicionar ou Remover Monitor
+
+participant Componente de Negócio
+
+database Banco de Dados
+
+activate Adicionar ou Remover Monitor
+Docente->Adicionar ou Remover Monitor:Adicionar ou remover um monitor()
+
+activate Componente de Negócio
+Adicionar ou Remover Monitor->Componente de Negócio:Valida se suas disciplinas possuem monitores()
+
+activate Banco de Dados
+Componente de Negócio->Banco de Dados:Checa se suas disciplinas possuem monitores banco de dados()
+
+Componente de Negócio<--Banco de Dados: Disciplinas possuem ou não possuem algum monitor()
+
+deactivate Banco de Dados
+
+Adicionar ou Remover Monitor<--Componente de Negócio:
+
+deactivate Componente de Negócio
+space 
+activate Componente de Negócio
+Adicionar ou Remover Monitor->Componente de Negócio:Valida se o monitor da disciplina existe ou não()
+
+activate Banco de Dados
+Componente de Negócio->Banco de Dados:Checa se o monitor existe ou não no banco de dados()
+
+Componente de Negócio<--Banco de Dados: Discente Monitor existe ou não existe()
+
+deactivate Banco de Dados
+
+Adicionar ou Remover Monitor<--Componente de Negócio:
+
+deactivate Componente de Negócio
+space 
+
+activate Componente de Negócio
+Adicionar ou Remover Monitor->Componente de Negócio:Adiciona um monitor()
+
+Componente de Negócio->Componente de Negócio:Valida se o discente já foi promovido á monitor()
+
+activate Banco de Dados
+
+Componente de Negócio->Banco de Dados:Checa se o discente já é monitor()
+Componente de Negócio<--Banco de Dados: O discente não é monitor()
+
+deactivate Banco de Dados
+
+Componente de Negócio->Componente de Negócio:Valida se a disciplina já têm um monitor atribuído()
+
+activate Banco de Dados
+
+Componente de Negócio->Banco de Dados:Checa a disciplina já têm um monitor atribuído()
+Componente de Negócio<--Banco de Dados:  Disciplina não têm um monitor atribuído()
+
+deactivate Banco de Dados
+
+Componente de Negócio->Componente de Negócio:Valida se o discente que será promovido existe()
+
+activate Banco de Dados
+
+Componente de Negócio->Banco de Dados:Checa se o discente que será promovido existe no banco de dados()
+Componente de Negócio<--Banco de Dados: Discente existe()
+
+
+
+deactivate Banco de Dados
+
+Componente de Negócio->Componente de Negócio:Valida se o curso do discente que será promovido existe()
+
+activate Banco de Dados
+
+Componente de Negócio->Banco de Dados:Checa se o curso do discente que será promovido existe no banco de dados()
+Componente de Negócio<--Banco de Dados: Curso existe()
+
+
+
+deactivate Banco de Dados
+
+space 
+
+activate Banco de Dados
+
+Componente de Negócio->Banco de Dados:O banco de dados é modificado()
+Componente de Negócio<--Banco de Dados:
+
+deactivate Banco de Dados
+
+
+
+Adicionar ou Remover Monitor<--Componente de Negócio:
+deactivate Componente de Negócio
+space 
+activate Componente de Negócio
+Adicionar ou Remover Monitor->Componente de Negócio:Remove um monitor()
+
+Componente de Negócio->Componente de Negócio:Valida se o discente escolhido é monitor()
+
+activate Banco de Dados
+
+Componente de Negócio->Banco de Dados:Checa se o discente é monitor()
+Componente de Negócio<--Banco de Dados: O discente é monitor()
+
+deactivate Banco de Dados
+
+Componente de Negócio->Componente de Negócio:Valida se a disciplina tem o mesmo monitor atribuído()
+
+activate Banco de Dados
+
+Componente de Negócio->Banco de Dados:Checa a disciplina têm o mesmo monitor atribuído()
+Componente de Negócio<--Banco de Dados: Disciplina têm o monitor atribuído()
+
+deactivate Banco de Dados
+
+Componente de Negócio->Componente de Negócio:Valida se o discente que será rebaixado existe()
+
+activate Banco de Dados
+
+Componente de Negócio->Banco de Dados:Checa se o discente que será rebaixado existe no banco de dados()
+Componente de Negócio<--Banco de Dados: Discente existe()
+
+
+
+deactivate Banco de Dados
+
+Componente de Negócio->Componente de Negócio:Valida se o curso do discente que será rebaixado existe()
+
+activate Banco de Dados
+
+Componente de Negócio->Banco de Dados:Checa se o curso do discente que será rebaixado existe no banco de dados()
+Componente de Negócio<--Banco de Dados: Curso existe()
+
+
+
+deactivate Banco de Dados
+
+space 
+
+activate Banco de Dados
+
+Componente de Negócio->Banco de Dados:O banco de dados é modificado()
+Componente de Negócio<--Banco de Dados:
+
+deactivate Banco de Dados
+
+
+
+Adicionar ou Remover Monitor<--Componente de Negócio:
+
+deactivate Componente de Negócio
+Discente Monitor<--Adicionar ou Remover Monitor: Resultado da escolha
+Docente<--Adicionar ou Remover Monitor:
+deactivate Adicionar ou Remover Monitor

@@ -1,0 +1,41 @@
+title Diagrama de Sequência -> Discente -> Desmarcar Agendamento
+
+actor Discente
+
+participant Desmarcar Agendamento
+
+participant Componente de Negócio
+
+database Banco de Dados
+
+activate Desmarcar Agendamento
+
+Discente->Desmarcar Agendamento: Desmarcar o atendimento ou monitoria
+
+activate Componente de Negócio
+Desmarcar Agendamento->Componente de Negócio:Desmarca o atendimento ou monitoria()
+
+
+activate Banco de Dados
+
+Componente de Negócio->Banco de Dados:Checa se o atendimento ou monitoria existe no banco de dados()
+Componente de Negócio<--Banco de Dados: O atendimento ou monitoria existe()
+
+
+
+deactivate Banco de Dados
+space 
+activate Banco de Dados
+Componente de Negócio->Banco de Dados:O cadastro de agendamento é removido do banco de dados()
+Componente de Negócio<--Banco de Dados: 
+
+
+deactivate Banco de Dados
+
+Desmarcar Agendamento<--Componente de Negócio:
+
+deactivate Componente de Negócio
+Discente Monitor<--Desmarcar Agendamento:Dados da lista de agendados na monitoria removidos
+Docente<--Desmarcar Agendamento:Dados adicionados da lista de agendados no atendimento removidos
+Discente<--Desmarcar Agendamento:
+deactivate Desmarcar Agendamento

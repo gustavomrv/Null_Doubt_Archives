@@ -1,0 +1,71 @@
+title Diagrama de Sequência -> Super-Usuário -> Gerenciar Disciplinas
+
+actor Super-Usuário
+
+participant Disciplina
+
+
+participant Gerenciar Disciplinas
+
+participant Componente de Negócio
+
+database Banco de Dados
+
+activate Gerenciar Disciplinas
+Super-Usuário->Gerenciar Disciplinas:Escolher intenção: criar, visualizar ou atualizar alguma disciplina()
+
+activate Componente de Negócio
+Gerenciar Disciplinas->Componente de Negócio:Valida se a disciplina existe ou não()
+
+activate Banco de Dados
+Componente de Negócio->Banco de Dados:Checa se a disciplina existe ou não no banco de dados()
+
+Componente de Negócio<--Banco de Dados: Disciplina existe ou não existe()
+
+deactivate Banco de Dados
+
+Gerenciar Disciplinas<--Componente de Negócio:
+
+deactivate Componente de Negócio
+space 
+activate Componente de Negócio
+Gerenciar Disciplinas->Componente de Negócio:Cria, visualiza ou atualiza alguma disciplina()
+
+Componente de Negócio->Componente de Negócio:Valida se o docente da disciplina existe ou não()
+
+activate Banco de Dados
+
+Componente de Negócio->Banco de Dados:Checa se o docente existe ou não no banco de dados()
+Componente de Negócio<--Banco de Dados: Docente existe ou não existe()
+
+
+
+deactivate Banco de Dados
+
+Componente de Negócio->Componente de Negócio:Valida se há discentes inscritos na disciplina()
+
+activate Banco de Dados
+
+Componente de Negócio->Banco de Dados:Checa se os discentes inscritos existem ou não no banco de dados()
+Componente de Negócio<--Banco de Dados: O discentes inscritos existem ou não existem()
+
+
+
+deactivate Banco de Dados
+
+
+space 
+
+activate Banco de Dados
+
+Componente de Negócio->Banco de Dados:O banco de dados é modificado de acordo com a escolha()
+Componente de Negócio<--Banco de Dados:
+
+deactivate Banco de Dados
+
+Gerenciar Disciplinas<--Componente de Negócio:
+
+deactivate Componente de Negócio
+Disciplina<--Gerenciar Disciplinas: Resultado da escolha
+Super-Usuário<--Gerenciar Disciplinas:
+deactivate Gerenciar Disciplinas

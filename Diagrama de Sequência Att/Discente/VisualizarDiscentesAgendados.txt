@@ -1,0 +1,63 @@
+title Diagrama de Sequência -> Discente Monitor -> Visualizar Discentes Agendados
+
+actor Discente Monitor
+
+participant Visualizar Discentes Agendados
+
+participant Componente de Negócio
+
+database Banco de Dados
+
+activate Visualizar Discentes Agendados
+Discente Monitor->Visualizar Discentes Agendados: Visualizar Discentes Agendados
+
+activate Componente de Negócio
+
+Visualizar Discentes Agendados->Componente de Negócio:Valida se a monitoria existes()
+
+activate Banco de Dados
+Componente de Negócio->Banco de Dados:Checa se a monitoria existe no banco de dados()
+
+Componente de Negócio<--Banco de Dados: A monitoria existe
+deactivate Banco de Dados
+
+Visualizar Discentes Agendados<--Componente de Negócio:
+
+deactivate Componente de Negócio
+space 
+
+activate Componente de Negócio
+Visualizar Discentes Agendados->Componente de Negócio:Visualiza os discentes agendados()
+
+
+activate Banco de Dados
+
+Componente de Negócio->Banco de Dados:Checa se possui discentes agendados()
+Componente de Negócio<--Banco de Dados: Possui ou não discentes agendados
+
+
+
+deactivate Banco de Dados
+space 
+activate Banco de Dados
+
+Componente de Negócio->Banco de Dados:Seleciona dados dos discentes agendados()
+Componente de Negócio<--Banco de Dados: 
+
+deactivate Banco de Dados
+Componente de Negócio->Componente de Negócio: Valida se o curso do discente agendado existe()
+
+activate Banco de Dados
+
+Componente de Negócio->Banco de Dados:Checa se o curso do discente agendado existe()
+Componente de Negócio<--Banco de Dados: O curso existe
+
+
+
+deactivate Banco de Dados
+
+Visualizar Discentes Agendados<--Componente de Negócio:
+
+deactivate Componente de Negócio
+Discente Monitor<--Visualizar Discentes Agendados:
+deactivate Visualizar Discentes Agendados

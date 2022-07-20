@@ -1,0 +1,72 @@
+title Diagrama de Sequência -> Docente -> CRUD Horários de Monitoria
+
+actor Docente
+
+actor Discente Monitor
+
+participant Monitoria
+
+
+participant CRUD Horários de Monitoria
+
+participant Componente de Negócio
+
+database Banco de Dados
+
+activate CRUD Horários de Monitoria
+Docente->CRUD Horários de Monitoria:Escolher intenção: criar ou excluir alguma monitoria()
+
+activate Componente de Negócio
+CRUD Horários de Monitoria->Componente de Negócio:Valida se a monitoria existe ou não()
+
+activate Banco de Dados
+Componente de Negócio->Banco de Dados:Checa se o monitoria existe ou não no banco de dados()
+
+Componente de Negócio<--Banco de Dados: Monitoria existe ou não existe()
+
+deactivate Banco de Dados
+
+CRUD Horários de Monitoria<--Componente de Negócio:
+
+deactivate Componente de Negócio
+space 
+activate Componente de Negócio
+CRUD Horários de Monitoria->Componente de Negócio:Cria, visualiza ou remove alguma monitoria()
+
+Componente de Negócio->Componente de Negócio:Valida se o local da monitoria existe ou não()
+
+activate Banco de Dados
+
+Componente de Negócio->Banco de Dados:Checa se o local da monitoria existe no banco de dados()
+Componente de Negócio<--Banco de Dados: Local existe()
+
+deactivate Banco de Dados
+
+Componente de Negócio->Componente de Negócio:Valida se a disciplina da monitoria existe ou nao()
+
+activate Banco de Dados
+
+Componente de Negócio->Banco de Dados:Checa se a disciplina da monitoria existe no banco de dados()
+Componente de Negócio<--Banco de Dados: Disciplina existe()
+
+
+
+deactivate Banco de Dados
+
+
+space 
+
+activate Banco de Dados
+
+Componente de Negócio->Banco de Dados:O banco de dados é modificado de acordo com a escolha do docente()
+Componente de Negócio<--Banco de Dados:
+
+deactivate Banco de Dados
+
+CRUD Horários de Monitoria<--Componente de Negócio:
+
+deactivate Componente de Negócio
+Monitoria<--CRUD Horários de Monitoria: Resultado da escolha
+Discente Monitor<--CRUD Horários de Monitoria: Resultado da escolha
+Docente<--CRUD Horários de Monitoria:
+deactivate CRUD Horários de Monitoria

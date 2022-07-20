@@ -1,0 +1,69 @@
+title Diagrama de Sequência -> Docente -> CRUD Horários de Atendimento
+
+actor Docente
+
+participant Atendimento
+
+
+participant CRUD Horários de Atendimento
+
+participant Componente de Negócio
+
+database Banco de Dados
+
+activate CRUD Horários de Atendimento
+Docente->CRUD Horários de Atendimento:Escolher intenção: criar, atualizar ou excluir algum atendimento()
+
+activate Componente de Negócio
+CRUD Horários de Atendimento->Componente de Negócio:Valida se o atendimento existe ou não()
+
+activate Banco de Dados
+Componente de Negócio->Banco de Dados:Checa se o atendimento existe ou não no banco de dados()
+
+Componente de Negócio<--Banco de Dados: Atendimento existe ou não existe()
+
+deactivate Banco de Dados
+
+CRUD Horários de Atendimento<--Componente de Negócio:
+
+deactivate Componente de Negócio
+space 
+activate Componente de Negócio
+CRUD Horários de Atendimento->Componente de Negócio:Cria, visualiza ou atualiza algum atendimento()
+
+Componente de Negócio->Componente de Negócio:Valida se o local do atendimento existe ou não()
+
+activate Banco de Dados
+
+Componente de Negócio->Banco de Dados:Checa se o local do atendimento existe no banco de dados()
+Componente de Negócio<--Banco de Dados: Local existe()
+
+deactivate Banco de Dados
+
+Componente de Negócio->Componente de Negócio:Valida se a disciplina do atendimento existe ou nao()
+
+activate Banco de Dados
+
+Componente de Negócio->Banco de Dados:Checa se a disciplina do atendimento existe no banco de dados()
+Componente de Negócio<--Banco de Dados: Disciplina existe()
+
+
+
+deactivate Banco de Dados
+
+
+space 
+
+activate Banco de Dados
+
+Componente de Negócio->Banco de Dados:O banco de dados é modificado de acordo com a escolha do docente()
+Componente de Negócio<--Banco de Dados:
+
+deactivate Banco de Dados
+
+CRUD Horários de Atendimento<--Componente de Negócio:
+
+deactivate Componente de Negócio
+Atendimento<--CRUD Horários de Atendimento: Resultado da escolha
+Docente<--CRUD Horários de Atendimento:
+deactivate CRUD Horários de Atendimento

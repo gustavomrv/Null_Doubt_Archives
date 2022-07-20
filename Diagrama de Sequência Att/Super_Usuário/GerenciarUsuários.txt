@@ -1,0 +1,62 @@
+title Diagrama de Sequência -> Super-Usuário -> Gerenciar Usuários
+
+actor Super-Usuário
+
+participant Docente
+
+participant Discente
+
+
+participant Gerenciar Usuários
+
+participant Componente de Negócio
+
+database Banco de Dados
+
+activate Gerenciar Usuários
+Super-Usuário->Gerenciar Usuários:Escolher intenção: criar, visualizar ou atualizar algum usuário()
+
+activate Componente de Negócio
+Gerenciar Usuários->Componente de Negócio:Valida se o usuário existe ou não()
+
+activate Banco de Dados
+Componente de Negócio->Banco de Dados:Checa se o usuário existe ou não no banco de dados()
+
+Componente de Negócio<--Banco de Dados: Usuário existe ou não existe()
+
+deactivate Banco de Dados
+
+Gerenciar Usuários<--Componente de Negócio:
+
+deactivate Componente de Negócio
+space 
+activate Componente de Negócio
+Gerenciar Usuários->Componente de Negócio:Cria, visualiza ou atualiza algum usuário()
+
+Componente de Negócio->Componente de Negócio:Para o discente, valida se o curso existe ou não()
+
+activate Banco de Dados
+
+Componente de Negócio->Banco de Dados:Checa se o curso existe ou não no banco de dados()
+Componente de Negócio<--Banco de Dados: Curso existe ou não existe()
+
+
+
+deactivate Banco de Dados
+
+space 
+
+activate Banco de Dados
+
+Componente de Negócio->Banco de Dados:O banco de dados é modificado de acordo com a escolha()
+Componente de Negócio<--Banco de Dados:
+
+deactivate Banco de Dados
+
+Gerenciar Usuários<--Componente de Negócio:
+
+deactivate Componente de Negócio
+Discente<--Gerenciar Usuários:Resultado da escolha
+Docente<--Gerenciar Usuários: Resultado da escolha
+Super-Usuário<--Gerenciar Usuários:
+deactivate Gerenciar Usuários

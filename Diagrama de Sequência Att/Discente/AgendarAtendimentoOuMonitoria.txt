@@ -1,0 +1,76 @@
+title Diagrama de Sequência -> Discente -> Agendar Atendimento ou Monitoria
+
+actor Discente
+
+
+
+participant Agendar Atendimento ou Monitoria
+
+participant Componente de Negócio
+
+database Banco de Dados
+
+activate Agendar Atendimento ou Monitoria
+Discente->Agendar Atendimento ou Monitoria: Marcar o atendimento ou monitoria
+
+activate Componente de Negócio
+Agendar Atendimento ou Monitoria->Componente de Negócio:Valida se o discente está inscrito em alguma disciplina()
+
+activate Banco de Dados
+Componente de Negócio->Banco de Dados:Checa se o discente está inscrito em alguma disciplina()
+
+Componente de Negócio<--Banco de Dados: Discente está inscrito ou não()
+
+deactivate Banco de Dados
+
+Componente de Negócio->Componente de Negócio:Valida se o docente da disciplina existe ou não()
+activate Banco de Dados
+Componente de Negócio->Banco de Dados:Checa se o docente da disciplina existe ou não no banco de dados()
+Componente de Negócio<--Banco de Dados: Docente existe ou não existe()
+deactivate Banco de Dados
+Agendar Atendimento ou Monitoria<--Componente de Negócio:
+
+deactivate Componente de Negócio
+space 
+
+activate Componente de Negócio
+Agendar Atendimento ou Monitoria->Componente de Negócio:Valida se a disciplina possui atendimentos ou monitorias ativas()
+
+activate Banco de Dados
+Componente de Negócio->Banco de Dados:Checa se a disciplina possui atendimentos ou monitorias ativas()
+
+Componente de Negócio<--Banco de Dados: Disciplina possui ou não atendimentos ou monitorias ativas()
+deactivate Banco de Dados
+
+Agendar Atendimento ou Monitoria<--Componente de Negócio:
+
+deactivate Componente de Negócio
+space 
+
+activate Componente de Negócio
+Agendar Atendimento ou Monitoria->Componente de Negócio:Marca o atendimento ou monitoria()
+
+
+activate Banco de Dados
+
+Componente de Negócio->Banco de Dados:Checa se o atendimento ou monitoria existe no banco de dados()
+Componente de Negócio<--Banco de Dados: O atendimento ou monitoria existe()
+
+
+
+deactivate Banco de Dados
+space 
+activate Banco de Dados
+Componente de Negócio->Banco de Dados:O cadastro de agendamento é adicionado ao banco de dados()
+Componente de Negócio<--Banco de Dados: 
+
+
+deactivate Banco de Dados
+
+Agendar Atendimento ou Monitoria<--Componente de Negócio:
+
+deactivate Componente de Negócio
+Discente Monitor<--Agendar Atendimento ou Monitoria:Dados adicionados a lista de agendados na monitoria
+Docente<--Agendar Atendimento ou Monitoria:Dados adicionados a lista de agendados no atendimento
+Discente<--Agendar Atendimento ou Monitoria:
+deactivate Agendar Atendimento ou Monitoria

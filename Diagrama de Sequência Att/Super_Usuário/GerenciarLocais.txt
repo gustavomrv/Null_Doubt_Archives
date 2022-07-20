@@ -1,0 +1,45 @@
+title Diagrama de Sequência -> Super-Usuário -> Gerenciar Locais
+
+actor Super-Usuário
+
+participant Local
+
+participant Gerenciar Locais
+
+participant Componente de Negócio
+
+database Banco de Dados
+
+activate Gerenciar Locais
+Super-Usuário->Gerenciar Locais:Escolher intenção: criar, visualizar ou atualizar algum local()
+
+activate Componente de Negócio
+Gerenciar Locais->Componente de Negócio:Valida se o local existe ou não()
+
+activate Banco de Dados
+Componente de Negócio->Banco de Dados:Checa se o local existe ou não no banco de dados()
+
+Componente de Negócio<--Banco de Dados: local existe ou não existe()
+
+deactivate Banco de Dados
+
+Gerenciar Locais<--Componente de Negócio:
+
+deactivate Componente de Negócio
+space 
+activate Componente de Negócio
+Gerenciar Locais->Componente de Negócio:Cria, visualiza ou atualiza algum local()
+
+activate Banco de Dados
+
+Componente de Negócio->Banco de Dados:O banco de dados é modificado de acordo com a escolha()
+Componente de Negócio<--Banco de Dados:
+
+deactivate Banco de Dados
+
+Gerenciar Locais<--Componente de Negócio:
+
+deactivate Componente de Negócio
+Local<--Gerenciar Locais: Resultado da escolha
+Super-Usuário<--Gerenciar Locais:
+deactivate Gerenciar Locais
